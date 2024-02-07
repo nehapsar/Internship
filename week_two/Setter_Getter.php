@@ -2,56 +2,48 @@
    
    class Car {
    
-       public $Color;
-       public $No_of_Seats;
+       public $color;
+       public $NoOfSeats;
 
-       public $Engine_Capacity;
+       public $engineCapacity;
 
        public $price;
 
-       public function set_Color($Color)
-       {
-        $this->Color = $Color;
+       public function setColor($color){
+        $this->color = $color;
        }
 
-       public function get_Color()
-       {
-        return $this->Color;
-       }
-
-
-
-       public function set_No_of_Seats($No_of_Seats)
-       {
-        $this->No_of_Seats = $No_of_Seats;
-       }
-       public function get_No_of_Seats()
-       {
-        return $this->No_of_Seats;
+       public function getColor(){
+        return $this->color;
        }
 
 
 
-        public function set_Engine_Capacity($Engine_Capacity)
-        {
-            $this->Engine_Capacity=$Engine_Capacity;
+       public function setNoOfSeats($NoOfSeats){
+        $this->NoOfSeats = $NoOfSeats;
+       }
+       public function getNoOfSeats(){
+        return $this->NoOfSeats;
+       }
+
+
+
+        public function setEngineCapacity($engineCapacity){
+            $this->engineCapacity=$engineCapacity;
         }
 
-        public function get_Engine_Capacity()
-        {
-            return $this->Engine_Capacity;
+        public function getEngineCapacity(){
+            return $this->engineCapacity;
         }
 
 
 
-        public function set_Price($Price)
-        {
-            $this->Price =$Price;
+        public function setPrice($price){
+            $this->price =$price;
         }
 
-        public function get_Price()
-        {
-            return $this->Price;
+        public function getPrice(){
+            return $this->price;
         }
 
     }
@@ -60,18 +52,18 @@
 
         $volvo = new Car();
 
-        $volvo->set_Color("Black");
-        $volvo->set_No_of_Seats("7");
-        $volvo->set_Engine_Capacity("50000cc");
-        $volvo->set_Price("700000");
+        $volvo->setcolor("Black");
+        $volvo->setNoOfSeats("7");
+        $volvo->setEngineCapacity("50000cc");
+        $volvo->setPrice("700000");
 
          
         echo "Name  Volvo Cras\n";
         echo "My features are:\n";
-        echo "Color : ".$volvo->get_Color()."\n";
-        echo "No_of_Seats : ".$volvo->get_No_of_Seats()."\n";
-        echo "Engine Capacity : ".$volvo->get_Engine_Capacity()."\n";
-        echo "Price : ".$volvo->get_Price();
+        echo "Color : ".$volvo->getColor()."\n";
+        echo "No_of_Seats : ".$volvo->getNoOfSeats()."\n";
+        echo "Engine Capacity : ".$volvo->getEngineCapacity()."\n";
+        echo "Price : ".$volvo->getPrice();
 
 
 
