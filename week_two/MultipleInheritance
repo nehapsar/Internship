@@ -1,0 +1,122 @@
+<?php
+
+
+interface Person {
+    public function getName();
+    public function getAge();
+    public function getAadharNo();
+}
+
+interface Student{
+    public function getUsn();
+    public  function getPercentage();
+
+}
+
+
+interface Employee{
+
+    public function getSalary();
+    public function getWorkExperience();
+}
+
+
+
+class StudentPerson implements Person, Student {
+    private $name;
+    private $age;
+    private $aadharNo;
+    private $usn;
+    private $percentage;
+
+    public function __construct($name, $age, $aadharNo, $usn, $percentage) {
+        $this->name = $name;
+        $this->age = $age;
+        $this->aadharNo = $aadharNo;
+        $this->usn = $usn;
+        $this->percentage = $percentage;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getAge() {
+        return $this->age;
+    }
+
+    public function getAadharNo() {
+        return $this->aadharNo;
+    }
+
+    public function getUsn() {
+        return $this->usn;
+    }
+
+    public function getPercentage() {
+        return $this->percentage;
+    }
+}
+
+class PersonEmployee implements Person, Employee {
+
+    private $name;
+    private $age;
+    private $aadharNo;
+    private $salary;
+    private $workExperience;
+
+    public function __construct($name, $age, $aadharNo, $salary, $workExperience) {
+
+        $this->name = $name;
+        $this->age = $age;
+        $this->aadharNo = $aadharNo;
+        $this->salary = $salary;
+        $this->workExperience = $workExperience;
+
+    }
+
+    public function getName() {
+
+        return $this->name;
+    }
+
+    public function getAge() {
+
+        return $this->age;
+    }
+
+    public function getAadharNo() {
+
+        return $this->aadharNo;
+    }
+
+    public function getSalary() {
+
+        return $this->salary;
+    }
+
+    public function getWorkExperience() {
+
+        return $this->workExperience;
+
+    }
+}
+
+$studentOne = new StudentPerson("neha", 23, 123456, "1RV22MC101", "75%");
+echo "Name: " . $studentOne->getName()."\n";
+echo "Age: " . $studentOne->getAge()."\n";
+echo "Aadhar No: " . $studentOne->getAadharNo()."\n";
+echo "Usn : " . $studentOne->getUsn()."\n";
+echo "Percentage: ".$studentOne->getPercentage()."\n";
+
+$personOne = new PersonEmployee("aiza",34,234588,20000,"2yrs");
+echo "\n";
+echo "\n";
+
+echo "Name: " . $personOne->getName()."\n";
+echo "Age: " . $personOne->getAge()."\n";
+echo "Aadhar No: " . $personOne->getAadharNo()."\n";
+echo "Salary : " . $personOne->getSalary()."\n";
+echo "Work Experience : " . $personOne->getWorkExperience()."\n";
+?>
