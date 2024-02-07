@@ -1,6 +1,7 @@
 <?php
 
 class Student {
+    
     public $name;
     public $age;
     public $usn;
@@ -17,9 +18,9 @@ class Student {
 }
 
 $i = 0;
-$Student_one = new Student("Ravi", 22, "1RVMC10".++$i);
-$Student_two = new Student("Raju", 24, "1RVMC10".++$i);
-$Student_three = new Student("Sham", 20, "1RVMC10".++$i);
+$StudentOne = new Student("Ravi", 22, "1RVMC10".++$i);
+$StudentTwo = new Student("Raju", 24, "1RVMC10".++$i);
+$StudentThree = new Student("Sham", 20, "1RVMC10".++$i);
 
 
 echo "NAME : ".$Student_one->name."\n";
