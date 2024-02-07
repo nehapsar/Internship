@@ -5,14 +5,14 @@ class Student {
     public $name;
     public $age;
     public $usn;
-    const Section = "A section";
+    const section = "A section";
 
     public function __construct($name, $age, $usn) 
     {
         $this->name = $name;
         $this->age = $age;
         $this->usn = $usn;
-        $this->Section =self::Section;
+        $this->section =self::section;
     }
     
 }
@@ -23,9 +23,9 @@ $StudentTwo = new Student("Raju", 24, "1RVMC10".++$i);
 $StudentThree = new Student("Sham", 20, "1RVMC10".++$i);
 
 
-echo "NAME : ".$Student_one->name."\n";
-echo "AGE : ".$Student_one->age."\n";
-echo "USN : ".$Student_one->usn."\n";
-echo "SEC : ".$Student_one->Section."\n";
+echo "NAME : ".$StudentOne->name."\n";
+echo "AGE : ".$StudentOne->age."\n";
+echo "USN : ".$StudentOne->usn."\n";
+echo "SEC : ".$StudentOne->section."\n";
 
 ?>
