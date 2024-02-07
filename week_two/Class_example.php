@@ -10,17 +10,21 @@ class Tree {
         $this->name = $name;
         $this->typeOfFertilizerUsed = $typeOfFertilizerUsed; 
         $this->heightOfTree = $heightOfTree;
+        
     }
 
     function getName(){
+        
         return $this->name;
     }
 
     function getTypeOfFertilizerUsed(){
+        
         return $this->typeOfFertilizerUsed;
     }
 
     function getHeightOfTree(){
+        
         return $this->heightOfTree;
     }
 }
