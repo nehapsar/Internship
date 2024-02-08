@@ -5,8 +5,6 @@ trait  taxAmount {
         return $salary -($salary*0.5);
     }
 }
-
-
 trait bonusAmount {
     public function calculateBonusAmount($salary){
         return $salary+(0.98*$salary);
@@ -19,7 +17,6 @@ class Employee {
     public $name;
     public $empId;
     public $salary;
-
     public function __construct($name,$empId,$salary){
         $this->name=$name;
         $this->empId=$empId;
