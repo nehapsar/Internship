@@ -1,13 +1,14 @@
 <?php
 
 class  Mamals {
- const DOMAIN = "Eukaryota";
- const SCIENTIFIC_NAME = "Mammalia";
- private static $kingdom = "Animalia";
- public  static $phylum = "Chordata";  
- public static function findKingdom(){
-    return self::$kingdom;
- }
+ 
+   const DOMAIN = "Eukaryota";
+   const SCIENTIFIC_NAME = "Mammalia";
+   private static $kingdom = "Animalia";
+   public  static $phylum = "Chordata";  
+   public static function findKingdom(){
+   return self::$kingdom;
+   }
 }
 
 class Humans extends Mamals {
@@ -22,4 +23,5 @@ echo "Scientific name : ".$person::SCIENTIFIC_NAME."\n";
 echo "Domain : ".Mamals::DOMAIN."\n";
 echo "kingdom : ".$person->findKingdom()."\n";
 echo "Phylum : ".Mamals::$phylum;
+
 ?>
