@@ -10,7 +10,6 @@ function readFileContent($filename) {
         while (($line = fgets($fileHandle)) !== false) {
              echo $line;
         }
-
         fclose($fileHandle);
         } catch (Exception $e) {
                echo "Exception caught: " . $e->getMessage() . "\n";
