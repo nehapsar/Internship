@@ -1,6 +1,5 @@
 <?php
 
-
 interface Person {
     public function getName();
     public function getAge();
@@ -10,9 +9,7 @@ interface Person {
 interface Student{
     public function getUsn();
     public  function getPercentage();
-
 }
-
 
 interface Employee{
 
@@ -20,9 +17,8 @@ interface Employee{
     public function getWorkExperience();
 }
 
-
-
 class StudentPerson implements Person, Student {
+
     private $name;
     private $age;
     private $aadharNo;
@@ -40,19 +36,15 @@ class StudentPerson implements Person, Student {
     public function getName() {
         return $this->name;
     }
-
     public function getAge() {
         return $this->age;
     }
-
     public function getAadharNo() {
         return $this->aadharNo;
     }
-
     public function getUsn() {
         return $this->usn;
     }
-
     public function getPercentage() {
         return $this->percentage;
     }
@@ -67,39 +59,27 @@ class PersonEmployee implements Person, Employee {
     private $workExperience;
 
     public function __construct($name, $age, $aadharNo, $salary, $workExperience) {
-
         $this->name = $name;
         $this->age = $age;
         $this->aadharNo = $aadharNo;
         $this->salary = $salary;
         $this->workExperience = $workExperience;
-
     }
 
     public function getName() {
-
         return $this->name;
     }
-
     public function getAge() {
-
         return $this->age;
     }
-
     public function getAadharNo() {
-
         return $this->aadharNo;
     }
-
     public function getSalary() {
-
         return $this->salary;
     }
-
     public function getWorkExperience() {
-
         return $this->workExperience;
-
     }
 }
 
@@ -112,11 +92,11 @@ echo "Percentage: ".$studentOne->getPercentage()."\n";
 
 $personOne = new PersonEmployee("aiza",34,234588,20000,"2yrs");
 echo "\n";
-echo "\n";
 
 echo "Name: " . $personOne->getName()."\n";
 echo "Age: " . $personOne->getAge()."\n";
 echo "Aadhar No: " . $personOne->getAadharNo()."\n";
 echo "Salary : " . $personOne->getSalary()."\n";
 echo "Work Experience : " . $personOne->getWorkExperience()."\n";
+
 ?>
