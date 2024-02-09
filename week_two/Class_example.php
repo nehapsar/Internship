@@ -5,33 +5,23 @@ class Tree {
     public $name;
     public $typeOfFertilizerUsed; 
     public $heightOfTree;
-
     function __construct($name, $typeOfFertilizerUsed, $heightOfTree){
         $this->name = $name;
         $this->typeOfFertilizerUsed = $typeOfFertilizerUsed; 
-        $this->heightOfTree = $heightOfTree;
-        
+        $this->heightOfTree = $heightOfTree; 
     }
-
-    function getName(){
-        
+    function getName(){  
         return $this->name;
     }
-
     function getTypeOfFertilizerUsed(){
-        
-        return $this->typeOfFertilizerUsed;
+      return $this->typeOfFertilizerUsed;
     }
-
     function getHeightOfTree(){
-        
         return $this->heightOfTree;
     }
 }
 
-
 $Garden = [];
-
 $treesData = [
     ["Apple Tree", "NPK", "22m"],
     ["Banana Tree", "HRT", "12m"],
@@ -52,3 +42,5 @@ foreach ($Garden as $tree){
 }
 
 print_r($Garden);
+
+?>
