@@ -2,10 +2,8 @@
 
 class Employee {
 
-    private $employeeId;
-  
+    private $employeeId;  
     public $employeeName;
-  
     protected $salary;
 
     public function __construct($employeeId, $employeeName, $salary) {
@@ -13,16 +11,12 @@ class Employee {
         $this->employeeName = $employeeName;
         $this->salary = $salary;
     }
-
 }
 
 class TotalSalaryOfEmployee extends Employee {
-    
 
     public function calculateBonus($bonusAmount) {
-
         return $this->salary * $bonusAmount;
-
     }
 }
 
