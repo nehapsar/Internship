@@ -76,4 +76,10 @@ $this->password = (chr(rand(97, 122)) . rand(100, 999));
     }
 }
 
+$userOne = new DisplayUserDetails('','','');
+$userOne->userInput();$userOne->setPassword();
+
+$userOne->displayEmail();
+
+?>
 
