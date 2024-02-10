@@ -46,3 +46,34 @@ class User {
     }
 }
 
+class DisplayUserDetails extends User {
+
+ public $password;
+    public function __construct($firstName, $lastName, $department) {
+        parent::__construct($firstName, $lastName, $department);
+    }
+
+
+
+
+
+public function setPassword(){
+$this->password = (chr(rand(97, 122)) . rand(100, 999));
+
+
+  }
+  public function getPassword(){
+    return $this->password;
+  }
+    public function displayEmail() {
+     $suffix = "smartlybuilt@gmail.com";
+  
+      echo "Name: " . $this->firstName . " " . $this->lastName . "\n";
+   
+     echo "Email: " . $this->firstName . $this->lastName . $this->department . $suffix . "\n";
+     echo "Password :".$this->password."\n";
+
+    }
+}
+
+
