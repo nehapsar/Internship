@@ -1,5 +1,12 @@
 <?php
 
+/*Scenario: You are an IT Support Administrator Specialist and are charged with the task of creating email accounts for new hires.
+Generate an email with the following syntax: firstname. lastname.@department.company
+Determine the department (sales, development, accounting), if none leave blank
+Generate a random String for a password
+Have set methods to change the password, set the mailbox capacity, and define an alternate email address
+Have get methods to display the name, email, and mailbox capacity*/
+
 class User {
 
     protected $firstName;
@@ -55,13 +62,12 @@ class DisplayUserDetails extends User {
         return $this->password;
     }
     public function displayEmail() {
-        $suffix = "smartlybuilt@gmail.com";
         echo "Name: " . $this->firstName . " " . $this->lastName . "\n";
-        echo "Email: " . $this->firstName . $this->lastName . $this->department . $suffix . "\n";
+        echo "Email: " . $this->firstName . $this->lastName ."@".$this->department ."com" . "\n";
         echo "Password :".$this->password."\n";
     }
 
-    public function setPasswordManually() {
+    public function setPassWordByUser() {
         $newPasswordOne = '';
         $newPasswordTwo = '';
         print_r("Do you want to change the password :\nPress(Y/N)");
@@ -101,7 +107,7 @@ $userOne = new DisplayUserDetails('', '', '');
 $userOne->userInput();
 $userOne->setPassword();
 $userOne->displayEmail();
-$userOne->setPasswordManually();
+$userOne->setPassWordByUser();
 
 ?>
 
