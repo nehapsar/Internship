@@ -63,7 +63,7 @@ class DisplayUserDetails extends User {
     }
     public function displayEmail() {
         echo "Name: " . $this->firstName . " " . $this->lastName . "\n";
-        echo "Email: " . $this->firstName . $this->lastName ."@".$this->department ."com" . "\n";
+        echo "Email: " . $this->firstName . $this->lastName .".".$this->department ."@smartlybuilt.com" . "\n";
         echo "Password :".$this->password."\n";
     }
 
@@ -89,7 +89,7 @@ class DisplayUserDetails extends User {
                 echo "Sorry, passwords do not match.\nTry again later.";
             }
         } elseif ($passWordChoice == 'n') {
-            print("Thank you");
+            print("Thank you\n");
         } else {
             echo "Enter your correct choice";
         }
