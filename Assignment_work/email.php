@@ -6,7 +6,7 @@ Determine the department (sales, development, accounting), if none leave blank
 Generate a random String for a password
 Have set methods to change the password, set the mailbox capacity, and define an alternate email address
 Have get methods to display the name, email, and mailbox capacity*/
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                >
 class User {
     
     protected $firstName;
@@ -26,7 +26,6 @@ class User {
         $this->firstName = readline();
         print_r("Enter your last name :");
         $this->lastName = readline();
-        
         if ($this->choice == 0) {            
             print_r("Please select your department\n1.Sales\n2.Development\n3.Accounting\n4.Others\n");
             $this->choice = readline();
@@ -44,9 +43,13 @@ class User {
         }
     }
     
+    public function collectUserInput() {
+        $this->userInput();
+    }
+
     public function getDepartment($department) {
         return $department;
-   }
+    }
 }
 
 class DisplayUserDetails extends User {
@@ -151,7 +154,7 @@ class DisplayUserDetails extends User {
 }
 
 $userOne = new DisplayUserDetails('', '', '');
-$userOne->userInput();
+$userOne->collectUserInput();
 $userOne->setEmail();
 $userOne->setAlternateEmailId();
 $userOne->setRandomPassword();
@@ -162,3 +165,5 @@ $userOne->displayUserDetails();
 ?>
 
 
+
+       
