@@ -102,10 +102,6 @@ class DisplayUserDetails extends User {
         return $this->mailBoxCapacity;
     }
 
-    public function displayPassword(){
-        echo "Random Password : ".$this->password."\n";
-    }
-
     public function setPassWordByUser() {        
         $newPasswordOne = '';
         $newPasswordTwo = '';
@@ -160,7 +156,6 @@ $userOne->setEmail();
 $userOne->setAlternateEmailId();
 $userOne->setRandomPassword();
 $userOne->setMailBoxCapacity("15GB");
-$userOne->displayPassword();
 $userOne->setPassWordByUser();
 $userOne->displayUserDetails();
 
