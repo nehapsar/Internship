@@ -14,7 +14,13 @@ class User {
     public $choice = 0;
     public $department;
 
-    function userInput(){        
+    public function __construct($firstName, $lastName, $department) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->department = $department;
+    }
+  
+    protected function userInput(){        
         print_r("Welcome to Smartly Built \n");
         print_r("Enter your first name :");
         $this->firstName = readline();
@@ -41,12 +47,6 @@ class User {
     public function getDepartment($department) {
         return $department;
    }
-
-    public function __construct($firstName, $lastName, $department) {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->department = $department;
-    }
 }
 
 class DisplayUserDetails extends User {
