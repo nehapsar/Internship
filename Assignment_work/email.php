@@ -57,7 +57,7 @@ class DisplayUserDetails extends User {
     public $alternateEmailAddress;
     public $password;
     public $email;
-    public $mailBoxCapacity;
+    public $mailBoxCapacity = "15GB";
     public $userData =[];
 
     public function __construct($firstName, $lastName, $department) {
@@ -98,7 +98,7 @@ class DisplayUserDetails extends User {
         return $this->password;
     }
 
-    public function setMailBoxCapacity($mailBoxCapacity){
+    public function setMailBoxCapacity(){
         $this->mailBoxCapacity = $mailBoxCapacity;
     }
 
@@ -167,9 +167,11 @@ $userOne->collectUserInput();
 $userOne->setEmail();
 $userOne->setAlternateEmailId();
 $userOne->setRandomPassword();
-$userOne->setMailBoxCapacity("15GB");
+$userOne->setMailBoxCapacity();
 $userOne->setPassWordByUser();
 $userOne->displayUserDetails();
+$userOne->addUserDetails();
+
 
 ?>
 
