@@ -172,7 +172,6 @@ $userOne->setPassWordByUser();
 $userOne->displayUserDetails();
 $userOne->addUserDetails();
 
-
 ?>
 
 
