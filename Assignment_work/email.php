@@ -58,6 +58,7 @@ class DisplayUserDetails extends User {
     public $password;
     public $email;
     public $mailBoxCapacity;
+    public $userData =[];
 
     public function __construct($firstName, $lastName, $department) {
         parent::__construct($firstName, $lastName, $department);
@@ -150,6 +151,14 @@ class DisplayUserDetails extends User {
                echo "Alternate Email: (Blank)\n";
         }
         echo "Mail Box Capacity : ".$this->mailBoxCapacity."\n";
+    }
+
+    public function addUserDetails(){
+        $userData =["Name" =>"$this->firstName. $this->lastName","Department"=>"$this->department","Email"=>"$this->email","Password"=>"$this->password"];
+        $userDataToAdd = json_encode($userData);
+        $myfile=fopen("user_details.json", "a+");
+        fwrite($myfile,$userDataToAdd);
+        fclose($myfile);
     }
 }
 
