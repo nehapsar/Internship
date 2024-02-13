@@ -57,7 +57,7 @@ class DisplayUserDetails extends User {
     public $alternateEmailAddress;
     public $password;
     public $email;
-    public $mailBoxCapacity = "15GB";
+    public $mailBoxCapacity;
     public $userData =[];
 
     public function __construct($firstName, $lastName, $department) {
@@ -99,7 +99,7 @@ class DisplayUserDetails extends User {
     }
 
     public function setMailBoxCapacity(){
-        $this->mailBoxCapacity = $mailBoxCapacity;
+        $this->mailBoxCapacity = "15GB";
     }
 
     public function getMailBoxCapacity(){
