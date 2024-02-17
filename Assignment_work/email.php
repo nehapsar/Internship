@@ -20,19 +20,19 @@ class User {
         $this->department = $department;
     }
 
-    protected function userInput(){
-            print_r("Welcome to Smartly Built \n");
-            print_r("Enter your first name :");
-            $this->firstName = readline();
-            print_r("Enter your last name :");
-            $this->lastName = readline();
-            $pattern = '/^[a-zA-Z ]+$/';
-            if (!preg_match($pattern, $this->firstName) && !preg_match($pattern, $this->lastName) && strlen($this->firstName) != 10) {
-                echo "Enter Valid Name\n";
-                return false;
-            }
-             
-            if ($this->choice == 0) {
+    public function userInput(){
+        print_r("Welcome to Smartly Built \n");
+        print_r("Enter your first name :");
+        $this->firstName = readline();
+        print_r("Enter your last name :");
+        $this->lastName = readline();
+        $pattern = '/^[a-zA-Z ]+$/';
+        if (!preg_match($pattern, $this->firstName) || !preg_match($pattern, $this->lastName)  || strlen($this->firstName) >= 10 || strlen($this->lastName) >= 10) {
+            echo "Enter Valid Name\n";
+            return false;
+        }
+
+        if ($this->choice == 0) {
                 print_r("Please select your department\n1.Sales\n2.Development\n3.Accounting\n4.Others\n");
                 $this->choice = readline();
                 if ($this->choice == 1) {
@@ -47,20 +47,17 @@ class User {
                     print_r("Please select a valid department");
                     return false;
                 }
-            }
-      return true;
-    }
-         
-    public function collectUserInput() {
-        $this->userInput();
-    }
+          }
+        return true;
+     }
 
     public function getDepartment($department) {
         return $department;
     }
 }
 
-class DisplayUserDetails extends User{
+class DisplayUserDetails extends User {
+
     public $alternateEmailAddress;
     public $password;
     public $email;
@@ -159,17 +156,18 @@ class DisplayUserDetails extends User{
         }
         echo "Mail Box Capacity : " . $this->mailBoxCapacity . "\n";
     }
-     public function addUserDetails(){
-            $userData =["Name" =>"$this->firstName. $this->lastName","Department"=>"$this->department","Email"=>"$this->email","Password"=>"$this->password"];
-            $userDataToAdd = json_encode($userData);
-            $myfile=fopen("user_details.json", "a+");
-            fwrite($myfile,$userDataToAdd);
-            fclose($myfile);
-        }
+
+    public function addUserDetails(){
+        $userData = ["Name" => "$this->firstName. $this->lastName", "Department" => "$this->department", "Email" => "$this->email", "Password" => "$this->password"];
+        $userDataToAdd = json_encode($userData);
+        $myfile = fopen("user_details.json", "a+");
+        fwrite($myfile, $userDataToAdd);
+        fclose($myfile);
+    }
 }
 
 $userOne = new DisplayUserDetails('', '', '');
-if ($userOne->collectUserInput()) {
+if ($userOne->userInput()) {
     $userOne->setEmail();
     $userOne->setAlternateEmailId();
     $userOne->setRandomPassword();
@@ -182,6 +180,3 @@ if ($userOne->collectUserInput()) {
 }
 
 ?>
-
-
-
