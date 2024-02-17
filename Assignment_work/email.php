@@ -6,9 +6,9 @@ Determine the department (sales, development, accounting), if none leave blank
 Generate a random String for a password
 Have set methods to change the password, set the mailbox capacity, and define an alternate email address
 Have get methods to display the name, email, and mailbox capacity*/
-         
+
 class User {
-    
+
     protected $firstName;
     protected $lastName;
     public $choice = 0;
@@ -19,30 +19,38 @@ class User {
         $this->lastName = $lastName;
         $this->department = $department;
     }
-  
-    protected function userInput(){        
-        print_r("Welcome to Smartly Built \n");
-        print_r("Enter your first name :");
-        $this->firstName = readline();
-        print_r("Enter your last name :");
-        $this->lastName = readline();
-        if ($this->choice == 0) {            
-            print_r("Please select your department\n1.Sales\n2.Development\n3.Accounting\n4.Others\n");
-            $this->choice = readline();
-            if ($this->choice == 1) {
-                $this->department = $this->getDepartment("sale");
-            } elseif ($this->choice == 2) {
-                $this->department = $this->getDepartment("dev");
-            } elseif ($this->choice == 3) {
-                $this->department = $this->getDepartment("acc");
-            } elseif ($this->choice == 4) {
-                $this->department = $this->getDepartment("");
-            } else {
-                print_r("Please select a valid department");
+
+    protected function userInput(){
+            print_r("Welcome to Smartly Built \n");
+            print_r("Enter your first name :");
+            $this->firstName = readline();
+            print_r("Enter your last name :");
+            $this->lastName = readline();
+            $pattern = '/^[a-zA-Z ]+$/';
+            if (!preg_match($pattern, $this->firstName) && !preg_match($pattern, $this->lastName) && strlen($this->firstName) != 10) {
+                echo "Enter Valid Name\n";
+                return false;
             }
-        }
+             
+            if ($this->choice == 0) {
+                print_r("Please select your department\n1.Sales\n2.Development\n3.Accounting\n4.Others\n");
+                $this->choice = readline();
+                if ($this->choice == 1) {
+                    $this->department = $this->getDepartment("sale");
+                } elseif ($this->choice == 2) {
+                    $this->department = $this->getDepartment("dev");
+                } elseif ($this->choice == 3) {
+                    $this->department = $this->getDepartment("acc");
+                } elseif ($this->choice == 4) {
+                    $this->department = $this->getDepartment("");
+                } else {
+                    print_r("Please select a valid department");
+                    return false;
+                }
+            }
+      return true;
     }
-    
+         
     public function collectUserInput() {
         $this->userInput();
     }
@@ -52,27 +60,26 @@ class User {
     }
 }
 
-class DisplayUserDetails extends User {
-    
+class DisplayUserDetails extends User{
     public $alternateEmailAddress;
     public $password;
     public $email;
     public $mailBoxCapacity;
-    public $userData =[];
+    public $userData = [];
 
-    public function __construct($firstName, $lastName, $department) {
+    public function __construct($firstName, $lastName, $department){
         parent::__construct($firstName, $lastName, $department);
     }
-    
-    public function setEmail() {
-        $this->email = $this->firstName . $this->lastName .".".$this->department ."@smartlybuilt.com";
+
+    public function setEmail(){
+        $this->email = $this->firstName . $this->lastName . "." . $this->department . "@smartlybuilt.com";
     }
 
     public function getEmail(){
         return $this->email;
     }
 
-    private function isValidEmail($email) {
+    public function isValidEmail($email){
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 
@@ -83,14 +90,14 @@ class DisplayUserDetails extends User {
             print_r("Alternate email id set up successfully\n");
         } else {
             echo "Invalid email address. Please enter a valid email.\n";
-           }
+        }
     }
 
     public function getAlternateEmailId(){
         return $this->alternateEmailAddress;
     }
 
-    public function setRandomPassword() {
+    public function setRandomPassword(){
         $this->password = (chr(rand(65, 90)) . rand(100, 999) . chr(rand(97, 122)) . chr(rand(33, 126)));
     }
 
@@ -106,7 +113,7 @@ class DisplayUserDetails extends User {
         return $this->mailBoxCapacity;
     }
 
-    public function setPassWordByUser() {        
+    public function setPassWordByUser(){
         $newPasswordOne = '';
         $newPasswordTwo = '';
         print_r("Do you want to change the password :\nPress(Y/N)");
@@ -134,46 +141,47 @@ class DisplayUserDetails extends User {
         }
     }
 
-    private function checkPasswordStrength($password) {
+    private function checkPasswordStrength($password){
         return preg_match('/[A-Z]/', $password) &&
-               preg_match('/[a-z]/', $password) &&
-               preg_match('/[^A-Za-z0-9]/', $password) &&
-               strlen($password) >= 4;
+            preg_match('/[a-z]/', $password) &&
+            preg_match('/[^A-Za-z0-9]/', $password) &&
+            strlen($password) >= 4;
     }
 
     public function displayUserDetails(){
-        echo "Name : ".$this->firstName." ".$this->lastName."\n";
-        echo "Email :".$this->email."\n"; // Added "\n" for better formatting
-        echo "Password : ".$this->password."\n";
+        echo "Name : " . $this->firstName . " " . $this->lastName . "\n";
+        echo "Email :" . $this->email . "\n"; // Added "\n" for better formatting
+        echo "Password : " . $this->password . "\n";
         if ($this->isValidEmail($this->alternateEmailAddress)) {
-        echo "Alternate Email: ".$this->alternateEmailAddress."\n";
-         } else {
-               echo "Alternate Email: (Blank)\n";
+            echo "Alternate Email: " . $this->alternateEmailAddress . "\n";
+        } else {
+            echo "Alternate Email: (Blank)\n";
         }
-        echo "Mail Box Capacity : ".$this->mailBoxCapacity."\n";
+        echo "Mail Box Capacity : " . $this->mailBoxCapacity . "\n";
     }
-
-    public function addUserDetails(){
-        $userData =["Name" =>"$this->firstName. $this->lastName","Department"=>"$this->department","Email"=>"$this->email","Password"=>"$this->password"];
-        $userDataToAdd = json_encode($userData);
-        $myfile=fopen("user_details.json", "a+");
-        fwrite($myfile,$userDataToAdd);
-        fclose($myfile);
-    }
+     public function addUserDetails(){
+            $userData =["Name" =>"$this->firstName. $this->lastName","Department"=>"$this->department","Email"=>"$this->email","Password"=>"$this->password"];
+            $userDataToAdd = json_encode($userData);
+            $myfile=fopen("user_details.json", "a+");
+            fwrite($myfile,$userDataToAdd);
+            fclose($myfile);
+        }
 }
 
 $userOne = new DisplayUserDetails('', '', '');
-$userOne->collectUserInput();
-$userOne->setEmail();
-$userOne->setAlternateEmailId();
-$userOne->setRandomPassword();
-$userOne->setMailBoxCapacity();
-$userOne->setPassWordByUser();
-$userOne->displayUserDetails();
-$userOne->addUserDetails();
+if ($userOne->collectUserInput()) {
+    $userOne->setEmail();
+    $userOne->setAlternateEmailId();
+    $userOne->setRandomPassword();
+    $userOne->setMailBoxCapacity();
+    $userOne->setPassWordByUser();
+    $userOne->displayUserDetails();
+    $userOne->addUserDetails();
+} else {
+    echo "Your input data is not correct. Please try again.\n";
+}
 
 ?>
 
 
 
-       
