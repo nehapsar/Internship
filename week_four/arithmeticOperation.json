@@ -1,0 +1,30 @@
+{
+  "addition":[
+    {"operation":"add","numOne":10,"numTwo":9,"result":19},
+    {"operation":"add","numOne":10,"numTwo":2,"result":12},
+    {"operation":"add","numOne":3,"numTwo":2,"result":5},{"operation":"add","numOne":7,"numTwo":3,"result":10}
+    ],
+
+   "subtraction":[
+    {"operation":"sub","numOne":7,"numTwo":3,"result":4},
+    {"operation":"sub","numOne":7,"numTwo":5,"result":2},
+    {"operation":"sub","numOne":10,"numTwo":5,"result":5}
+    ],
+
+   "multplication":[
+     {"operation":"multiply","numOne":10,"numTwo":5,"result":50},
+     {"operation":"multiply","numOne":10,"numTwo":2,"result":20},
+     {"operation":"multiply","numOne":10,"numTwo":2,"result":20},
+     {"operation":"multiply","numOne":10,"numTwo":7,"result":70}
+     ],
+
+  "division":[
+    {"operation":"divsion","numOne":10,"numTwo":7,"result":1.4285714285714286},
+    {"operation":"divsion","numOne":10,"numTwo":2,"result":5}
+   ],
+
+  "reminder":[
+    {"operation":"divsion","numOne":10,"numTwo":2,"result":0},
+    {"operation":"divsion","numOne":10,"numTwo":3,"result":1}
+  ]
+}
